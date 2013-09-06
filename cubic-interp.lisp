@@ -1,8 +1,4 @@
 (require :gsll) ;; gsll is not really necessary, i just use it for testing
-(defpackage :g (:use :cl gsll))
-(in-package :g)
-
-
 
 (defmacro def-interp (name fun)
 ;; this macro is supposed to be called with a function
@@ -129,9 +125,13 @@
 
 
 
+(declaim (optimize (speed 3) (safety 1) (debug 0)))
+
 (def-interp bessel-j bessel-j-and-deriv)
 (def-interp bessel-k bessel-k-and-deriv)
 (def-interp bessel-k-scaled bessel-k-scaled-and-deriv)
+
+
 
 
 #+nil
